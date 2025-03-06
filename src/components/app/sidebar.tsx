@@ -28,7 +28,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="h-screen fixed w-12  flex flex-col items-center pt-5 pb-5 justify-between text-white z-[10000] border-r border-white/30">
+    <aside className="h-screen hidden fixed w-12  md:flex flex-col items-center pt-5 pb-5 justify-between text-white bg-orange-400/65 z-[10000]">
       <div className="flex flex-col gap-6">
         <Link
           href={"/dashboard/perfil"}
@@ -38,7 +38,7 @@ export default function Sidebar() {
         >
           <User size={25} />
           {hoveredIcon === "Usuario" && (
-            <span className="absolute left-12 text-white bg-gray-800 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
+            <span className="absolute left-12 text-white bg-orange-300 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
               Rodrigo Tutz
             </span>
           )}
@@ -54,7 +54,7 @@ export default function Sidebar() {
         >
           <LayoutDashboardIcon size={22} />
           {hoveredIcon === "Dashboard" && (
-            <span className="absolute left-12 text-white bg-black/50 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
+            <span className="absolute left-12 text-white bg-orange-300 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
               Dashboard
             </span>
           )}
@@ -68,7 +68,7 @@ export default function Sidebar() {
         >
           <Banknote size={22} />
           {hoveredIcon === "Prestação de Contas" && (
-            <span className="absolute left-12 text-white bg-black/50 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
+            <span className="absolute left-12 text-white bg-orange-300 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
               Prestação de Contas
             </span>
           )}
@@ -82,7 +82,7 @@ export default function Sidebar() {
         >
           <Building size={22} />
           {hoveredIcon === "Cidades" && (
-            <span className="absolute left-12 text-white bg-black/50 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
+            <span className="absolute left-12 text-white bg-orange-300 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
               Cidades
             </span>
           )}
@@ -96,7 +96,7 @@ export default function Sidebar() {
         >
           <Car size={22} />
           {hoveredIcon === "Veiculos" && (
-            <span className="absolute left-12 text-white bg-black/50 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
+            <span className="absolute left-12 text-white bg-orange-300 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
               Veículos
             </span>
           )}
@@ -110,7 +110,7 @@ export default function Sidebar() {
         >
           <Plane size={22} />
           {hoveredIcon === "Viagens" && (
-            <span className="absolute left-12 text-white bg-black/50 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
+            <span className="absolute left-12 text-white bg-orange-300 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
               Viagens
             </span>
           )}
@@ -124,7 +124,7 @@ export default function Sidebar() {
         >
           <Briefcase size={22} />
           {hoveredIcon === "Técnicos" && (
-            <span className="absolute left-12 text-white bg-black/50 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
+            <span className="absolute left-12 text-white bg-orange-300 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
               Técnicos
             </span>
           )}

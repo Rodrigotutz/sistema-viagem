@@ -10,7 +10,7 @@ export default function Layout({
       <aside>
         <Sidebar />
       </aside>
-      <main className="ml-12 p-10 text-white">
+      <main className="md:ml-12 p-10 bg-neutral-50/90 min-h-screen">
         {children}
       </main>
     </>

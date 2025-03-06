@@ -60,7 +60,7 @@ export default function Home() {
         </div>
       </Form>
 
-      <div className="mt-5 text-md flex gap-1 justify-end opacity-75 text-white">
+      <div className="mt-5 text-md flex gap-1 justify-end opacity-75 text-gray-600">
         <span>Já tem uma conta?</span>
         <Link href={"/"} className="font-bold">
           Faça o login

@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <main className="w-full h-screen flex items-center justify-center flex-col">
-      <Form action={handleSubmit} className="border p-5 rounded w-96 bg-white">
+      <Form action={handleSubmit} className="border p-5 rounded w-96 bg-white shadow-lg">
         <div className="mb-5">
           <h2 className="text-xl font-bold">Login</h2>
         </div>
@@ -48,7 +48,7 @@ export default function Home() {
         </div>
       </Form>
 
-      <div className="mt-5 text-md flex gap-1 justify-end opacity-75 text-white">
+      <div className="mt-5 text-md flex gap-1 justify-end opacity-75 text-gray-700">
         <span>Não tem uma conta?</span>
         <Link href={"/registrar"} className="font-bold">
           Cadastre-se

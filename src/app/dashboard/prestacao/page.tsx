@@ -35,7 +35,7 @@ export default function Page() {
           <NovaPrestacao addPrestacao={addPrestacao} />
         </div>
 
-        <div className="mt-10 p-2 rounded min-h-96">
+        <div className="mt-10 p-2 rounded min-h-96 bg-white shadow-xl">
           <h3 className="font-bold mb-3 text-xl">Prestações:</h3>
           <DataTable columns={columns} data={data} />
         </div>

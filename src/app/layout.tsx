@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className="bg-black/95" >
+      <body className="bg-gray-200" >
         {children}
         <Toaster position="bottom-right" richColors />
       </body>
