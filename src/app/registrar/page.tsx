@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import registerAction from "./registerAction";
+import registerAction from "../../utils/registerAction";
 import PassowordInput from "@/components/app/passowrd-input";
 
 export default function Home() {

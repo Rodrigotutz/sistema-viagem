@@ -17,6 +17,16 @@ export default async function registerCidadeAction(formData: FormData) {
     return { success: false, message: "Preencha todos os campos" };
   }
 
+  const findCidade = await db.cidade.findUnique({
+    where: {
+      cidade: data.cidade,
+    },
+  });
+
+  if (findCidade) {
+    return { success: false, message: "Cidade já existe" };
+  }
+
   try {
     const cidade = await db.cidade.create({
       data: {
@@ -31,6 +41,7 @@ export default async function registerCidadeAction(formData: FormData) {
     }
     return { success: true, message: "Cidade criada com sucesso" };
   } catch (e: any) {
+    console.log(e)
     return {
         success: false,
         message: "Erro ao salvar cidade. Tente novamente!",
