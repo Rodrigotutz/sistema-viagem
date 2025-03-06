@@ -17,7 +17,7 @@ export default function Home() {
     const result = await loginAction(data);
     if (result.success) {
       toast.info(result.message);
-      router.push("/dashboard");
+      router.push("/dashboard/prestacao");
     } else {
       toast.error(result.message);
     }
@@ -25,7 +25,10 @@ export default function Home() {
 
   return (
     <main className="w-full h-screen flex items-center justify-center flex-col">
-      <Form action={handleSubmit} className="border p-5 rounded w-96 bg-white shadow-lg">
+      <Form
+        action={handleSubmit}
+        className="border p-5 rounded w-96 bg-white shadow-lg"
+      >
         <div className="mb-5">
           <h2 className="text-xl font-bold">Login</h2>
         </div>

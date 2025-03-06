@@ -31,6 +31,10 @@ export const columns: ColumnDef<Cidades>[] = [
     header: "Estado",
   },
   {
+    accessorKey: "sigla",
+    header: "Sigla",
+  },
+  {
     id: "actions",
     header: "Ação",
     cell: ({ row }) => {

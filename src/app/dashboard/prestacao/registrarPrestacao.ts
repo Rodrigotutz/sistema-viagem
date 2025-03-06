@@ -40,7 +40,6 @@ export default async function registerPrestacaoAction(formData: FormData) {
 
     return { success: true, message: "Prestação registrada com sucesso!" };
   } catch (error) {
-    console.error("Erro ao registrar prestação:", error);
     return {
       success: false,
       message: "Erro ao registrar a prestação. Tente novamente!",

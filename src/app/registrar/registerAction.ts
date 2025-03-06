@@ -18,7 +18,7 @@ export default async function registerAction(formData: FormData): Promise<Messag
     return { success: false, message: "Preencha todos os campos" };
   }
 
-  const findUser = await db.user.findUnique({
+  const findUser = await db.usuario.findUnique({
     where: {
       email: data.email,
     },
@@ -28,7 +28,7 @@ export default async function registerAction(formData: FormData): Promise<Messag
     return { success: false, message: "Usuário já existe" };
   }
 
-  const user: User = await db.user.create({
+  const user: User = await db.usuario.create({
     data: {
       email: data.email,
       name: data.name,

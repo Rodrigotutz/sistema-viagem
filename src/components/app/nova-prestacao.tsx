@@ -36,7 +36,7 @@ import registerPrestacaoAction from "@/app/dashboard/prestacao/registrarPrestaca
 export default function NovaPrestacao({
   addPrestacao,
 }: {
-  addPrestacao: (newPrestacao: any) => void;
+  addPrestacao: (novaPrestacao: any) => void;
 }) {
   const [date, setDate] = useState<Date>();
   const [file, setFile] = useState<File | null>(null);
@@ -69,7 +69,7 @@ export default function NovaPrestacao({
       comprovante: file ? file.name : "",
     };
 
-    addPrestacao(newPrestacao);
+    addPrestacao(NovaPrestacao);
 
     const response = await registerPrestacaoAction(formData);
     if (response.success) {

@@ -2,7 +2,6 @@
 
 import { User } from "@/@types/user";
 import { signIn } from "@/auth";
-import { redirect } from "next/navigation";
 
 export default async function loginAction(formData: FormData) {
   const entries = Array.from(formData.entries());
@@ -17,7 +16,7 @@ export default async function loginAction(formData: FormData) {
   }
 
   try {
-    const result = await signIn("credentials", {
+    await signIn("credentials", {
       email: data.email as string,
       password: data.password as string,
       redirect: false,
@@ -27,7 +26,6 @@ export default async function loginAction(formData: FormData) {
     if (e.type === "CredentialsSignin") {
       return { success: false, message: "Email ou senha inválidos" };
     }
-
-    return { success: false, message: "Tente novamente mais tarde!" };
   }
+  return { success: false, message: "Tente novamente mais tarde!" };
 }

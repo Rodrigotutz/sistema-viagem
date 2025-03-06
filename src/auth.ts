@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { findUserByCredentials } from "./lib/user";
+import { findUserByCredentials } from "./lib/usuario";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -10,22 +10,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error("Email e senha são obrigatórios.");
-        }
-
         const user = await findUserByCredentials(
           credentials.email as string,
           credentials.password as string
         );
 
-        if (!user) throw new Error("Credenciais inválidas.");
         return user;
       },
     }),
   ],
-  trustHost: true,
-  session: { strategy: "jwt" },
   callbacks: {
     async session({ session, token }) {
       if (token?.id) {

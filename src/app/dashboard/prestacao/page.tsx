@@ -26,7 +26,7 @@ export default function Page() {
 
   return (
     <div className="w-full">
-      <h2 className="text-2xl font-bold flex gap-2 items-end">
+      <h2 className="text-2xl font-bold flex gap-2 items-end text-orange-400">
         <BanknoteIcon size={30} /> Prestação de Contas
       </h2>
 
@@ -35,8 +35,8 @@ export default function Page() {
           <NovaPrestacao addPrestacao={addPrestacao} />
         </div>
 
-        <div className="mt-10 p-2 rounded min-h-96 bg-white shadow-xl">
-          <h3 className="font-bold mb-3 text-xl">Prestações:</h3>
+        <div className="mt-10 p-5 rounded min-h-96 bg-white shadow-xl border-b">
+          <h3 className="font-bold mb-3 text-xl text-orange-400">Prestações:</h3>
           <DataTable columns={columns} data={data} />
         </div>
       </div>
