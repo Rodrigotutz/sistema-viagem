@@ -43,10 +43,9 @@ export default function Page() {
                 <DialogTitle className="text-orange-400">
                   Nova Viagem
                 </DialogTitle>
-                <DialogDescription className="pt-5">
-                  <form>
+                  <form className="pt-5">
                     <div className="mb-3">
-                      <Label htmlFor="cidade">Cidade</Label>
+                      <Label htmlFor="cidade" className="mb-3">Cidade</Label>
                       <Input
                         id="cidade"
                         type="text"
@@ -55,7 +54,7 @@ export default function Page() {
                     </div>
 
                     <div className="mb-3">
-                      <Label htmlFor="estado">Técnicos</Label>
+                      <Label htmlFor="estado" className="mb-3">Técnicos</Label>
                       <Select onValueChange={setUsuarios} value={usuarios}>
                         <SelectTrigger className="w-full mt-2">
                           <SelectValue placeholder="Selecione um técnico" />
@@ -77,7 +76,6 @@ export default function Page() {
                       </Button>
                     </div>
                   </form>
-                </DialogDescription>
               </DialogHeader>
             </DialogContent>
           </Dialog>

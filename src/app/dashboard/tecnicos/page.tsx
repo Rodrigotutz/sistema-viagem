@@ -30,54 +30,35 @@ export default function Page() {
   return (
     <div className="w-full">
       <h2 className="text-2xl font-bold text-orange-400 flex gap-2 items-end">
-        <PlaneLanding size={30} /> Viagens
+        <PlaneLanding size={30} /> Técnicos
       </h2>
       <div className="mt-5">
         <div className="flex justify-end w-full">
           <Dialog>
             <DialogTrigger className="flex p-1 rounded text-white bg-orange-400 hover:bg-orange-500">
-              <Plus /> Nova Viagem
+              <Plus /> Novo Técnico
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
                 <DialogTitle className="text-orange-400">
-                  Nova Viagem
+                  Novo Técnico
                 </DialogTitle>
-                <DialogDescription className="pt-5">
-                  <form>
-                    <div className="mb-3">
-                      <Label htmlFor="cidade">Cidade</Label>
-                      <Input
-                        id="cidade"
-                        type="text"
-                        placeholder="Insira o nome da cidade..."
-                      />
-                    </div>
+                <form className="pt-5">
+                  <div className="mb-3">
+                    <Label htmlFor="cidade" className="mb-2">Nome</Label>
+                    <Input
+                      id="cidade"
+                      type="text"
+                      placeholder="Insira o nome do técnico..."
+                    />
+                  </div>
 
-                    <div className="mb-3">
-                      <Label htmlFor="estado">Técnicos</Label>
-                      <Select onValueChange={setUsuarios} value={usuarios}>
-                        <SelectTrigger className="w-full mt-2">
-                          <SelectValue placeholder="Selecione um técnico" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="São Luis - MA">
-                            Rodrigo Tutz
-                          </SelectItem>
-                          <SelectItem value="São Raimundo Nonato - PI">
-                            Carlos Raniere
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div className="mt-10 w-full">
-                      <Button className="bg-orange-500 hover:bg-orange-400 text-white w-full">
-                        Salvar
-                      </Button>
-                    </div>
-                  </form>
-                </DialogDescription>
+                  <div className="mt-10 w-full">
+                    <Button className="bg-orange-500 hover:bg-orange-400 text-white w-full">
+                      Salvar
+                    </Button>
+                  </div>
+                </form>
               </DialogHeader>
             </DialogContent>
           </Dialog>

@@ -34,10 +34,9 @@ export default function Page() {
                 <DialogTitle className="text-orange-400">
                   Nova Cidade
                 </DialogTitle>
-                <DialogDescription className="pt-5">
-                  <form>
-                    <div className="mb-3">
-                      <Label htmlFor="cidade">Cidade</Label>
+                  <form className="pt-5 flex flex-col gap-3">
+                    <div className="mb-2">
+                      <Label htmlFor="cidade" className="mb-2">Cidade</Label>
                       <Input
                         id="cidade"
                         type="text"
@@ -45,8 +44,8 @@ export default function Page() {
                       />
                     </div>
 
-                    <div className="mb-3">
-                      <Label htmlFor="estado">Estado</Label>
+                    <div className="mb-2">
+                      <Label htmlFor="estado" className="mb-2">Estado</Label>
                       <Input
                         id="estado"
                         type="text"
@@ -54,13 +53,12 @@ export default function Page() {
                       />
                     </div>
 
-                    <div className="mt-10 w-full">
+                    <div className="w-full">
                       <Button className="bg-orange-500 hover:bg-orange-400 text-white w-full">
                         Salvar
                       </Button>
                     </div>
                   </form>
-                </DialogDescription>
               </DialogHeader>
             </DialogContent>
           </Dialog>

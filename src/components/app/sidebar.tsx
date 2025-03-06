@@ -129,20 +129,6 @@ export default function Sidebar() {
             </span>
           )}
         </Link>
-
-        <Link
-          href={"/dashboard/manutencoes"}
-          onMouseEnter={() => handleMouseEnter("Manutenções")}
-          onMouseLeave={handleMouseLeave}
-          className="relative flex items-center"
-        >
-          <TrafficCone size={22} />
-          {hoveredIcon === "Manutenções" && (
-            <span className="absolute left-12 text-white bg-black/50 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
-              Manutenções
-            </span>
-          )}
-        </Link>
       </div>
 
       <div className="flex flex-col gap-5">
