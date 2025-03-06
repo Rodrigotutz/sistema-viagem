@@ -5,7 +5,7 @@ import { BanknoteIcon } from "lucide-react";
 import { DataTable } from "@/components/app/data-table";
 import { columns } from "./coluns";
 import NovaPrestacao from "@/components/app/nova-prestacao";
-import { getPrestacoes } from "@/app/dashboard/prestacao/getPrestacoes";
+import { getPrestacoes } from "@/utils/getPrestacoes";
 
 export default function Page() {
   const [data, setData] = useState<any>([]);

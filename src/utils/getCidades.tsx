@@ -5,7 +5,7 @@ export async function getCidades() {
 
   const cidades = await db.cidade.findMany({
     orderBy: {
-      createdAt: "desc",
+      cidade: "asc",
     },
 
   });

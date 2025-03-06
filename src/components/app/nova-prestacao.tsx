@@ -29,9 +29,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useDropzone } from "react-dropzone";
 import { ptBR } from "date-fns/locale";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { CalendarIcon, Plus, UploadCloud } from "lucide-react";
-import registerPrestacaoAction from "@/app/dashboard/prestacao/registrarPrestacao";
+import registerPrestacaoAction from "@/utils/registrarPrestacao";
+import { getCidades } from "@/utils/getCidades";
 
 export default function NovaPrestacao({
   addPrestacao,
@@ -41,6 +42,15 @@ export default function NovaPrestacao({
   const [date, setDate] = useState<Date>();
   const [file, setFile] = useState<File | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [cidades, setCidades] = useState<any>([]);
+
+  useEffect(() => {
+    const fetchCidades = async () => {
+      const cidade = await getCidades();
+      setCidades(cidade);
+    };
+    fetchCidades();
+  }, []);
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (acceptedFiles.length > 0) {
@@ -98,15 +108,15 @@ export default function NovaPrestacao({
               <div>
                 <Label htmlFor="cidade">Cidade:</Label>
                 <Select name="cidade">
-                  <SelectTrigger className="w-full md:w-[200px] mt-2">
+                  <SelectTrigger className="w-full md:w-[230px] mt-2">
                     <SelectValue placeholder="Selecione uma cidade" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="São Luis - MA">São Luis - MA</SelectItem>
-                    <SelectItem value="São Raimundo Nonato - PI">
-                      São Raimundo Nonato - PI
-                    </SelectItem>
-                    <SelectItem value="Natal - RN">Natal - RN</SelectItem>
+                    {cidades.map((cidade: any) => (
+                      <SelectItem key={cidade.id} value={cidade.cidade}>
+                        {cidade.cidade} - {cidade.sigla}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
@@ -118,7 +128,7 @@ export default function NovaPrestacao({
                     <Button
                       variant="outline"
                       className={cn(
-                        "w-full md:w-[240px] justify-start text-left font-normal",
+                        "w-full md:w-[210px] justify-start text-left font-normal",
                         !date && "text-muted-foreground"
                       )}
                     >
@@ -147,13 +157,14 @@ export default function NovaPrestacao({
               <div>
                 <Label htmlFor="tipo">Tipo:</Label>
                 <Select name="tipo">
-                  <SelectTrigger className="w-full md:w-[200px] mt-2">
+                  <SelectTrigger className="w-full md:w-[230px] mt-2">
                     <SelectValue placeholder="Selecione um tipo" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Combustível">Combustível</SelectItem>
                     <SelectItem value="Hospedagem">Hospedagem</SelectItem>
                     <SelectItem value="Alimentação">Alimentação</SelectItem>
+                    <SelectItem value="Outros">Outros</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -163,8 +174,8 @@ export default function NovaPrestacao({
                 <Input
                   id="valor"
                   name="valor"
-                  placeholder="Insira o valor da viagem"
-                  type="text"
+                  placeholder="Valor da prestação"
+                  type="number"
                   className="w-full mt-2"
                 />
               </div>

@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import registerCidadeAction from "@/app/dashboard/cidades/registerCidade";
+import registerCidadeAction from "@/utils/registerCidade";
 import { toast } from "sonner";
 import { Plus } from "lucide-react";
 

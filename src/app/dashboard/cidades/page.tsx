@@ -3,7 +3,7 @@ import { DataTable } from "@/components/app/data-table";
 import { columns } from "./coluns";
 import { Building2Icon } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getCidades } from "./getCidades";
+import { getCidades } from "../../../utils/getCidades";
 import NovaCidade from "@/components/app/nova-cidade";
 
 export default function Page() {
