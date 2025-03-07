@@ -30,7 +30,7 @@ export default function Page() {
       </h2>
       <div className="mt-5">
         <div className="flex justify-end w-full">
-          <NovaCidade addCidade={addCidade} />
+          <NovaCidade addCidade={addCidade} titulo="Nova Cidade"/>
         </div>
 
         <div className="mt-10 bg-white p-5 rounded min-h-96 shadow-lg border-b">

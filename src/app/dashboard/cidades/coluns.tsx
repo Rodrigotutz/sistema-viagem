@@ -19,10 +19,6 @@ import { Cidades } from "@/@types/cidades";
 
 export const columns: ColumnDef<Cidades>[] = [
   {
-    accessorKey: "id",
-    header: "Id",
-  },
-  {
     accessorKey: "cidade",
     header: "Cidade",
   },

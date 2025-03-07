@@ -140,7 +140,7 @@ export default function Sidebar() {
         >
           <Settings2 size={22} />
           {hoveredIcon === "Definições" && (
-            <span className="absolute left-12 text-white bg-black/50 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
+            <span className="absolute left-12 text-white bg-orange-300 p-2 rounded-md text-lg whitespace-nowrap z-[9999]">
               Definições
             </span>
           )}

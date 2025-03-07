@@ -33,6 +33,8 @@ import { useState, useCallback, useEffect } from "react";
 import { CalendarIcon, Plus, UploadCloud } from "lucide-react";
 import registerPrestacaoAction from "@/utils/registrarPrestacao";
 import { getCidades } from "@/utils/getCidades";
+import NovaCidade from "./nova-cidade";
+import Form from "next/form";
 
 export default function NovaPrestacao({
   addPrestacao,
@@ -50,7 +52,7 @@ export default function NovaPrestacao({
       setCidades(cidade);
     };
     fetchCidades();
-  }, []);
+  });
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (acceptedFiles.length > 0) {
@@ -98,27 +100,25 @@ export default function NovaPrestacao({
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="pb-5">Nova Prestação de Contas</DialogTitle>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit(new FormData(e.target as HTMLFormElement));
-            }}
-          >
+          <Form action={handleSubmit}>
             <div className="flex flex-col md:flex-row gap-5">
               <div>
                 <Label htmlFor="cidade">Cidade:</Label>
-                <Select name="cidade">
-                  <SelectTrigger className="w-full md:w-[230px] mt-2">
-                    <SelectValue placeholder="Selecione uma cidade" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {cidades.map((cidade: any) => (
-                      <SelectItem key={cidade.id} value={cidade.cidade}>
-                        {cidade.cidade} - {cidade.sigla}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <div className="flex items-center gap-1 mt-2">
+                  <Select name="cidade">
+                    <SelectTrigger className="w-full md:w-[195px]">
+                      <SelectValue placeholder="Selecione uma cidade" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {cidades.map((cidade: any) => (
+                        <SelectItem key={cidade.id} value={cidade.cidade}>
+                          {cidade.cidade} - {cidade.sigla}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <NovaCidade />
+                </div>
               </div>
 
               <div>
@@ -215,7 +215,7 @@ export default function NovaPrestacao({
                 Salvar
               </Button>
             </div>
-          </form>
+          </Form>
         </DialogHeader>
       </DialogContent>
     </Dialog>

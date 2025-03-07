@@ -1,6 +1,5 @@
 "use client";
 
-import Form from "next/form";
 import { useState } from "react";
 import {
   Dialog,
@@ -15,16 +14,32 @@ import { Input } from "@/components/ui/input";
 import registerCidadeAction from "@/utils/registerCidade";
 import { toast } from "sonner";
 import { Plus } from "lucide-react";
+import Form from "next/form";
 
 export default function NovaCidade({
   addCidade,
+  titulo,
 }: {
-  addCidade: (novaCidade: any) => void;
+  addCidade?: (novaCidade: {
+    cidade: string;
+    estado: string;
+    sigla: string;
+  }) => void;
+  titulo?: string;
 }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleSubmit = async (formData: FormData) => {
-    addCidade(NovaCidade);
+    const novaCidade = {
+      cidade: formData.get("cidade") as string,
+      estado: formData.get("estado") as string,
+      sigla: formData.get("sigla") as string,
+    };
+
+    if (addCidade) {
+      addCidade(novaCidade);
+    }
+
     const response = await registerCidadeAction(formData);
     if (response.success) {
       toast.success(response.message);
@@ -37,7 +52,7 @@ export default function NovaCidade({
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger className="flex p-1 rounded text-white bg-orange-400 hover:bg-orange-500">
-        <Plus /> Nova Cidade
+        <Plus /> {titulo}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -52,6 +67,7 @@ export default function NovaCidade({
                 type="text"
                 name="cidade"
                 placeholder="Insira o nome da Cidade..."
+                required
               />
             </div>
 
@@ -65,6 +81,7 @@ export default function NovaCidade({
                   type="text"
                   name="estado"
                   placeholder="Insira o Estado..."
+                  required
                 />
               </div>
 
@@ -78,12 +95,16 @@ export default function NovaCidade({
                   type="text"
                   name="sigla"
                   placeholder="Sigla"
+                  required
                 />
               </div>
             </div>
 
             <div className="w-full">
-              <Button className="bg-orange-500 hover:bg-orange-400 text-white w-full">
+              <Button
+                type="submit"
+                className="bg-orange-500 hover:bg-orange-400 text-white w-full"
+              >
                 Salvar
               </Button>
             </div>
